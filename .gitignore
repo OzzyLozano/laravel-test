@@ -1,3 +1,5 @@
+ozzy_ssh_key
+ozzy_ssh_key.pub
 /.phpunit.cache
 /node_modules
 /public/build

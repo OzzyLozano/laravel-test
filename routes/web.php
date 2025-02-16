@@ -11,3 +11,6 @@ Route::get('/to-do-list', function () {
 Route::get('/hello', function () {
   return 'Hello World';
 });
+Route::get('/', function () {
+  return view('./subdomains/apps/index');
+})->domain('apps.' . env('APP_URL'));

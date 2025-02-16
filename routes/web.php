@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PostController;
 
 Route::domain(env('APP_URL'))->group(function () {
   Route::get('/', function () {
@@ -15,6 +16,7 @@ Route::domain('blogs.' . env('APP_URL'))->group(function () {
   Route::get('/', function () {
       return view('./blogs/index');
   });
+  Route::resource('/posts', PostController::class);
 });
 
 Route::domain('apps.' . env('APP_URL'))->group(function () {

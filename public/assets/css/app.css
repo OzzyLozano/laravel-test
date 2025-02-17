@@ -16,3 +16,6 @@ html {
   display: flex;
   gap: 1rem;
 }
+.card {
+  width: min(32rem, 80%);
+}

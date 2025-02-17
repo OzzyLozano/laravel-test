@@ -3,7 +3,7 @@
 @section('title', 'Blogs')
 
 @section('navbar')
-  @include('components.blogs_navbar')
+  @include('components.navbar.blogs')
 @endsection
 
 @section('content')

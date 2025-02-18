@@ -11,6 +11,9 @@ Route::domain(env('APP_URL'))->group(function () {
   Route::get('/hello', function () {
     return 'Hello World';
   });
+  Route::get('/login', function () {
+    return view('./login/index');
+  });
 });
 
 Route::domain('blogs.' . env('APP_URL'))->group(function () {
@@ -26,12 +29,6 @@ Route::domain('apps.' . env('APP_URL'))->group(function () {
   });
   Route::get('/to-do-list', function () {
     return view('./apps/todolist');
-  });
-});
-
-Route::domain('login.' . env('APP_URL'))->group(function () {
-  Route::get('/', function () {
-    return view('./login/index');
   });
 });
 

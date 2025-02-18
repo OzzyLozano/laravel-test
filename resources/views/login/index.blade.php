@@ -11,16 +11,24 @@
   <main class="d-flex flex-column justify-content-center align-items-center min-vh-100">
     <div class="card p-4 shadow-sm b-none">
     <h2 class="mx-auto">Log In</h2>
-      <form action="submit" method="post">
+      <form action="{{ route('login') }}" method="post">
+        @csrf
         <div class="form-group mb-4">
-          <label for="exampleInputEmail1">Email address</label>
-          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+          <label for="email">Email address</label>
+          <input type="email" class="form-control" name="email" required placeholder="Enter email">
         </div>
         <div class="form-group mb-4">
-          <label for="exampleInputPassword1">Password</label>
-          <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+          <label for="password">Password</label>
+          <input type="password" class="form-control" name="password" required placeholder="Password">
         </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <div class="d-flex flex-row justify-content-end align-items-center gap-4">
+          @if (Route::has('password.request'))
+            <a class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800" href="{{ route('password.request') }}">
+              {{ __('Forgot your password?') }}
+            </a>
+          @endif
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
       </form>
     </div>
   </main>

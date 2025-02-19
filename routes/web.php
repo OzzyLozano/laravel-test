@@ -14,6 +14,12 @@ Route::domain(env('APP_URL'))->group(function () {
   });
 });
 
+Route::domain('www.' . env('APP_URL'))->group(function () {
+  Route::get('/', function () {
+    return redirect(env('HOME'));
+  });
+});
+
 Route::domain('admin.' . env('APP_URL'))->group(function () {
   Route::get('/', function () {
     return view('./admin/index');

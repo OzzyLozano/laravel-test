@@ -10,5 +10,6 @@
     @else
       <a href="{{ env('HOME') . '/login' }}" class="btn bg-primary-subtle p-2">Log In</a>
     @endauth
+    <a href="{{ env('ADMIN_SUBDOMAIN') }}">admin?</a>
   </div>
 </nav>

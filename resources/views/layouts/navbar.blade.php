@@ -2,9 +2,6 @@
   @yield('logo')
   <div class="nav-container align-items-center">
     @yield('links')
-    @if (auth()->check() && auth()->user()->email === 'ing.oziellozano@gmail.com')
-      <a href="{{ env('ADMIN_SUBDOMAIN') }}" class="nav-link">Admin</a>
-    @endif
     @auth
       <form action="{{ url('/logout') }}" method="post" class="d-inline">
         @csrf

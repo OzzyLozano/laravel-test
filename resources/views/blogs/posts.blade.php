@@ -12,14 +12,14 @@
     @foreach ($posts as $post)
       <li>
         <a href="{{ route('posts.show', $post->id) }}">{{ $post->title }}</a>
-        @if (auth()->check() && auth()->user()->email === 'ing.oziellozano@gmail.com')
+        <!-- @if (auth()->check() && auth()->user()->email === 'ing.oziellozano@gmail.com')
           <a href="{{ route('posts.edit', $post->id) }}" class="btn btn-secondary">Edit</a>
           <form action="{{ route('posts.destroy', $post->id) }}" method="POST" style="display:inline;">
             @csrf
             @method('DELETE')
             <button type="submit" class="btn btn-danger">Delete</button>
           </form>
-        @endif
+        @endif -->
       </li>
     @endforeach
   </ul>

@@ -9,7 +9,7 @@
 
 
 @section('navbar')
-  <a href="{{ env('HOME') . '/login' }}" class="btn bg-primary-subtle p-2">Log In</a>
+@include('components.navbar.admin')
 @endsection
 
 @section('content')

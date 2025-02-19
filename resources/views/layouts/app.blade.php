@@ -11,12 +11,12 @@
   @yield('navbar')
 
   <main>
-  @if (auth()->check())
-    <p>Hola, {{ auth()->user()->name }}!</p>
-  @else
-    <p>No estás autenticado.</p>
-  @endif
     @yield('content')
+    <!-- @if (auth()->check())
+      <p>Hola, {{ auth()->user()->name }}!</p>
+    @else
+      <p>No estás autenticado.</p>
+    @endif -->
   </main>
 
   <footer></footer>

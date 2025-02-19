@@ -9,7 +9,7 @@
 
 
 @section('navbar')
-@include('components.navbar.admin')
+  @include('components.navbar.admin')
 @endsection
 
 @section('content')

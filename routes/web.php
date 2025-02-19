@@ -4,14 +4,17 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\PostViewController;
+use App\Http\Controllers\Auth\RegisteredUserController;
 
 Route::domain(env('APP_URL'))->group(function () {
   Route::get('/', function () {
     return view('home');
   });
   Route::get('/login', function () {
-    return view('./login/index');
+    return view('./myauth/login');
   });
+  Route::get('/register', [RegisteredUserController::class, 'create'])->name('register');
+  Route::post('/register', [RegisteredUserController::class, 'store'])->name('register');
 });
 
 Route::domain('www.' . env('APP_URL'))->group(function () {

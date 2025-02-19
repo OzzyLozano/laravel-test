@@ -9,7 +9,7 @@
 @endsection
 
 @section('links')
-<a href="{{ env('HOME') }}" class="nav-link">Home</a>
-<a href="{{ env('BLOG_SUBDOMAIN') }}" class="nav-link">Blogs</a>
-<a href="{{ env('APPS_SUBDOMAIN') }}" class="nav-link">Apps</a>
+  <a href="{{ env('HOME') }}" class="nav-link">Home</a>
+  <a href="{{ env('BLOG_SUBDOMAIN') }}" class="nav-link">Blogs</a>
+  <a href="{{ env('APPS_SUBDOMAIN') }}" class="nav-link">Apps</a>
 @endsection

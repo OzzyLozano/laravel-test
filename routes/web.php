@@ -25,9 +25,14 @@ Route::domain('www.' . env('APP_URL'))->group(function () {
 
 Route::domain('admin.' . env('APP_URL'))->group(function () {
   Route::get('/', function () {
-    return view('./admin/index');
+    if (auth()->check() && auth()->user()->email === env('ADMIN_MAIL')) {
+      return view('./admin/index');
+    } else {
+      return redirect(env('HOME'));
+    }
   });
   Route::resource('/blogs', PostController::class);
+  Route::resource('/users', ProfileController::class);
 });
 
 Route::domain('apps.' . env('APP_URL'))->group(function () {

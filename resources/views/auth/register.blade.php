@@ -14,28 +14,37 @@
     <h2 class="mx-auto">Register</h2>
       <form action="{{ route('register') }}" method="post">
         @csrf
-        <div class="form-group mb-4">
+        <div class="form-group mb-3">
           <label for="name" :value="__('Name')">Name</label>
           <input class="form-control" type="text" name="name" :value="old('name')" required autofocus autocomplete="name">
           @error('name')
             <div class="invalid-feedback">{{ $message }}</div>
           @enderror
         </div>
-        <div class="form-group mb-4">
+        <!-- <div class="form-group mb-3">
+          <label for="role">Role:</label>
+          <select name="role" class="form-control" id="role">
+            <option value="user">user</option>
+            <option value="admin">admin</option>
+            <option value="creator">creator</option>
+            <option value="editor">editor</option>
+          </select>
+        </div> -->
+        <div class="form-group mb-3">
           <label for="email" :value="__('Email')">Email address</label>
           <input class="form-control" type="email" name="email" :value="old('email')" required autocomplete="username">
           @error('email')
             <div class="invalid-feedback">{{ $message }}</div>
           @enderror
         </div>
-        <div class="form-group mb-4">
+        <div class="form-group mb-3">
           <label for="password" :value="__('Password')">Password</label>
           <input class="form-control" type="password" name="password" required autocomplete="new-password">
           @error('password')
             <div class="invalid-feedback">{{ $message }}</div>
           @enderror
         </div>
-        <div class="form-group mb-4">
+        <div class="form-group mb-3">
           <label for="password_confirmation" :value="__('Confirm Password')">Confirm Password</label>
           <input class="form-control" type="password" name="password_confirmation" required autocomplete="new-password">
         </div>

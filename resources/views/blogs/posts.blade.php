@@ -6,20 +6,20 @@
   @include('components.navbar.blogs')
 @endsection
 
-@section('content')
+@section('title-section')
   <h1>List of Posts</h1>
-  <ul>
+@endsection
+
+@section('content')
+  <ul class="posts-list d-flex flex-column justify-content-center gap-4">
     @foreach ($posts as $post)
-      <li>
-        <a href="{{ route('posts.show', $post->id) }}">{{ $post->title }}</a>
-        <!-- @if (auth()->check() && auth()->user()->email === 'ing.oziellozano@gmail.com')
-          <a href="{{ route('posts.edit', $post->id) }}" class="btn btn-secondary">Edit</a>
-          <form action="{{ route('posts.destroy', $post->id) }}" method="POST" style="display:inline;">
-            @csrf
-            @method('DELETE')
-            <button type="submit" class="btn btn-danger">Delete</button>
-          </form>
-        @endif -->
+      <li class="post-item d-flex gap-2 shadow rounded">
+        <div class="blog-icon"></div>
+        <div class="d-flex flex-column">
+          <h2 class="post-title">{{ $post->title }}</h2>
+          <p class="post-description overflow-scroll">{{ $post->description }}</p>
+          <a class="post-link d-block" href="{{ route('posts.show', $post->id) }}">Ver publicación</a>
+        </div>
       </li>
     @endforeach
   </ul>

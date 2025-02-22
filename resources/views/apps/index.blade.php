@@ -6,6 +6,9 @@
   @include('components.navbar.apps')
 @endsection
 
-@section('content')
+@section('title-section')
   <h2>This is an Apps subdomain</h2>
+@endsection
+
+@section('content')
 @endsection

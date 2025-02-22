@@ -6,6 +6,9 @@
   @include('components.navbar.home')
 @endsection
 
-@section('content')
+@section('title-section')
   <h2>This is a homepage</h2>
+@endsection
+
+@section('content')
 @endsection

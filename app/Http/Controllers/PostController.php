@@ -23,6 +23,7 @@ class PostController extends Controller {
   public function store(Request $request) {
     $post = new Post();
     $post->title = $request->title;
+    $post->description = $request->description;
     $post->content = $request->content;
     $post->save();
 
@@ -37,6 +38,7 @@ class PostController extends Controller {
   public function update(Request $request, $id) {
     $post = Post::findOrFail($id);
     $post->title = $request->title;
+    $post->description = $request->description;
     $post->content = $request->content;
     $post->save();
 
@@ -49,5 +51,4 @@ class PostController extends Controller {
 
     return redirect()->route('blogs.index');
   }
-
 }

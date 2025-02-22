@@ -11,17 +11,22 @@
   @yield('navbar')
 
   <main>
-    <section class="mx-4 my-2">
+    <section class="panel-title-section bg-primary-subtle px-4 py-2">
       @yield('title-section')
+      <div class="d-flex flex-column gap-1">
+        <a href="{{ route('blogs.index') }}" class="panel-link">Blogs</a>
+        <div class="ms-4">
+          @yield('blog-methods')
+        </div>
+        <a href="{{ route('users.index') }}" class="panel-link">Usuarios</a>
+        <div class="ms-4">
+          @yield('user-methods')
+        </div>
+      </div>
     </section>
-    <section class="mx-4 my-2">
+    <section class="panel-content-section">
       @yield('content')
     </section>
-    <!-- @if (auth()->check())
-      <p>Hola, {{ auth()->user()->name }}!</p>
-    @else
-      <p>No estás autenticado.</p>
-    @endif -->
   </main>
 
   @yield('footer')

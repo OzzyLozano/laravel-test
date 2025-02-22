@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 
 
 @if (auth()->check())
@@ -7,19 +7,14 @@
   @section('title', 'Admin')
 @endif
 
-
 @section('navbar')
   @include('components.navbar.admin')
 @endsection
 
-@section('content')
-  <h2>Admin page</h2>
+@section('title-section')
+  <h2 class="mb-2">Admin page</h2>
+@endsection
 
-  <!-- @if (auth()->check())
-    <a>Ir a pulicaciones</a>
-  @else
-    <p>Inicie sesion para ver las publicaciones.</p>
-  @endif -->
+@section('content')
   
-  <a href="{{ route('blogs.index') }}">Ir a blogs</a>
 @endsection

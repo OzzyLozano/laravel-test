@@ -8,53 +8,48 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
+use App\Models\User;
 
-class ProfileController extends Controller
-{
-    /**
-     * Display the user's profile form.
-     */
-    public function edit(Request $request): View
-    {
-        return view('profile.edit', [
-            'user' => $request->user(),
-        ]);
-    }
+class ProfileController extends Controller {
+  /**
+  * Display the user's profile form.
+  */
+  public function index():view {
+    $users = User::all();
+    return view('admin.users.index', compact('users'));
+  }
 
-    /**
-     * Update the user's profile information.
-     */
-    public function update(ProfileUpdateRequest $request): RedirectResponse
-    {
-        $request->user()->fill($request->validated());
+  public function edit($id): View {
+    $user = User::findOrFail($id);
+      return view('admin.users.edit', compact('user'));
+  }
 
-        if ($request->user()->isDirty('email')) {
-            $request->user()->email_verified_at = null;
-        }
+  public function update(Request $request, $id): RedirectResponse {
+    $user = User::findOrFail($id); // Buscar el usuario por ID
 
-        $request->user()->save();
+    $request->validate([
+        'name' => 'required|string|max:255',
+        'role' => 'required|in:user,admin,creator,editor',
+    ]);
 
-        return Redirect::route('profile.edit')->with('status', 'profile-updated');
-    }
+    $user->name = $request->input('name');
+    $user->role = $request->input('role');
+    $user->save();
 
-    /**
-     * Delete the user's account.
-     */
-    public function destroy(Request $request): RedirectResponse
-    {
-        $request->validateWithBag('userDeletion', [
-            'password' => ['required', 'current_password'],
-        ]);
+    return Redirect::route('users.index')->with('success', 'User updated successfully');
+  }
 
-        $user = $request->user();
+  public function show($id) {
+    return redirect()->route('users.index');
+  }
 
-        Auth::logout();
+  /**
+  * Delete the user's account.
+  */
+  public function destroy($id) {
+    $user = User::findOrFail($id);
+    $user->delete();
 
-        $user->delete();
-
-        $request->session()->invalidate();
-        $request->session()->regenerateToken();
-
-        return Redirect::to('/');
-    }
+    return Redirect::route('users.index');
+  }
 }

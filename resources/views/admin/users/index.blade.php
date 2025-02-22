@@ -23,7 +23,7 @@
 @endsection
 
 @section('content')
-  @if (auth()->check() && auth()->user()->role === 'admin')
+  @if (auth()->check())
     <div class="table-responsive">
       <table class="table table-hover">
         <thead>

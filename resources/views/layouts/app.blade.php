@@ -8,6 +8,8 @@
   <title>@yield('title', 'Default Title')</title>
 </head>
 <body>
+  <div class="moon"></div>
+  <img class="moon" src="{{ asset('assets/img/moon.png') }}" alt="moon">
   @yield('navbar')
 
   <main>

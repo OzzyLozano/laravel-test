@@ -15,17 +15,17 @@
     </a> -->
     <h2>Blogs</h2>
   </div>
-  @section('blog-methods')
-    @if (auth()->check())
-      <a href="{{ route('blogs.create') }}" class="btn btn-primary my-2">Create Blog</a>
-    @endif
-  @endsection
 @endsection
 
 @section('content')
+  @section('methods')
+    @if (auth()->check())
+      <a href="{{ route('blogs.create') }}" class="btn button-primary my-2">New Blog</a>
+    @endif
+  @endsection
   <ul class="posts-list d-flex flex-column justify-content-center gap-4">
     @foreach ($posts as $post)
-      <li class="post-item d-flex gap-2 shadow rounded">
+      <li class="post-item d-flex shadow rounded">
         <div class="blog-icon"></div>
         <div class="d-flex flex-column">
           <h2 class="post-title">{{ $post->title }}</h2>
@@ -33,11 +33,11 @@
           <a class="post-link d-block" href="{{ route('blogs.show', $post->id) }}">Ver publicación</a>
           @if (auth()->check())
             <div>
-              <a href="{{ route('blogs.edit', $post->id) }}" class="btn btn-secondary">Edit</a>
+              <a href="{{ route('blogs.edit', $post->id) }}" class="btn button-primary">Edit</a>
               <form action="{{ route('blogs.destroy', $post->id) }}" method="POST" style="display:inline;">
                 @csrf
                 @method('DELETE')
-                <button type="submit" class="btn btn-danger">Delete</button>
+                <button type="submit" class="btn button-secondary">Delete</button>
               </form>
             </div>
           @endif

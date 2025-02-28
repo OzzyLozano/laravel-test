@@ -25,7 +25,7 @@ Route::domain('www.' . env('APP_URL'))->group(function () {
 
 Route::domain('admin.' . env('APP_URL'))->group(function () {
   Route::get('/', function () {
-    if (auth()->check() && auth()->user()->email === env('ADMIN_MAIL')) {
+    if (auth()->check() && auth()->user()->role === 'admin') {
       return view('./admin/index');
     } else {
       return redirect(env('HOME'));

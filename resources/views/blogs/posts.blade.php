@@ -13,7 +13,7 @@
 @section('content')
   <ul class="posts-list d-flex flex-column justify-content-center gap-4">
     @foreach ($posts as $post)
-      <li class="post-item d-flex gap-2 shadow rounded">
+      <li class="post-item d-flex shadow rounded">
         <div class="blog-icon"></div>
         <div class="d-flex flex-column">
           <h2 class="post-title">{{ $post->title }}</h2>

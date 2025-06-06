@@ -8,7 +8,10 @@
   <title>@yield('title', 'Default Title')</title>
 </head>
 <body>
-  <img class="moon" src="{{ asset('assets/img/moon.png') }}" alt="moon">
+  <div id="sky" class="sky"></div>
+  <div class="moon">
+    <img class="moon-img" src="{{ asset('assets/img/moon.png') }}" alt="moon">
+  </div>
   @yield('navbar')
 
   <main>
@@ -28,5 +31,9 @@
   @yield('footer')
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    const imageUrl = "{{ asset('assets/img/star.png') }}";
+  </script>
+  <script src="{{ asset('assets/js/script.js') }}"></script>
 </body>
 </html>

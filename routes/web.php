@@ -10,6 +10,9 @@ Route::domain(env('APP_URL'))->group(function () {
   Route::get('/', function () {
     return view('home');
   });
+  Route::get('/cv', function () {
+    return view('cv');
+  });
   Route::get('/login', function () {
     return view('./myauth/login');
   });
@@ -19,7 +22,7 @@ Route::domain(env('APP_URL'))->group(function () {
 
 Route::domain('www.' . env('APP_URL'))->group(function () {
   Route::get('/', function () {
-    return redirect(env('HOME'));
+    return redirect(env('HOME_URL'));
   });
 });
 
@@ -28,7 +31,7 @@ Route::domain('admin.' . env('APP_URL'))->group(function () {
     if (auth()->check() && auth()->user()->role === 'admin') {
       return view('./admin/index');
     } else {
-      return redirect(env('HOME'));
+      return redirect(env('HOME_URL'));
     }
   });
   Route::resource('/blogs', PostController::class);

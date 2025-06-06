@@ -18,7 +18,7 @@
         <div class="d-flex flex-column">
           <h2 class="post-title">{{ $post->title }}</h2>
           <p class="post-description overflow-scroll">{{ $post->description }}</p>
-          <a class="post-link d-block" href="{{ route('posts.show', $post->id) }}">Ver publicación</a>
+          <a class="post-link d-block text-shadow" href="{{ route('posts.show', $post->id) }}">Ver publicación</a>
         </div>
       </li>
     @endforeach

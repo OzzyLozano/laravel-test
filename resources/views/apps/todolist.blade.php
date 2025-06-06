@@ -11,7 +11,7 @@
   <nav class="navbar px-3 bg-primary">
     <h2 class="nav-title">To-Do List</h2>
     <div class="nav-container">
-      <a href="{{ env('HOME') }}" class="nav-link">home</a>
+      <a href="{{ env('HOME_URL') }}" class="nav-link">home</a>
     </div>
     <button type="button" class="btn bg-primary-subtle p-2 d-none">Log In</button>
   </nav>

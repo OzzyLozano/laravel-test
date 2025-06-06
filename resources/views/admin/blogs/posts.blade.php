@@ -8,7 +8,7 @@
 
 @section('title-section')
   <div class="d-flex gap-2 align-items-center mb-2">
-    <!-- <a href="{{ env('ADMIN_SUBDOMAIN') }}" class="btn btn-primary p-0 back-arrow">
+    <!-- <a href="{{ env('ADMIN_URL') }}" class="btn btn-primary p-0 back-arrow">
       <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-arrow-left back-arrow-icon">
         <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8"/>
       </svg>
